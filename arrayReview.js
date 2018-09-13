@@ -59,7 +59,7 @@ twoDAry.filter(arr => arr.length !== 3);
 // Sum an array of numbers
 numArray.reduce((acc, num) => {
   return acc + num;
-}, 0);
+});
 
 // 'Flatten' an array of arrays
 // Flatten means to create a single array, based on the order of the arrays of the arrays inside
@@ -81,3 +81,14 @@ numArray.reduce((acc, num) => {
 
 // Another solution without reduce:
 Math.min(...numArray);
+
+// charMap out of a sentence
+let sentence = 'This is a sentence for examples';
+
+let splitSentence = sentence.split('');
+
+splitSentence.reduce((acc, character) => {
+  if (acc[character]) acc[character]++;
+  else acc[character] = 1;
+  return acc;
+}, {});
