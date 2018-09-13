@@ -14,7 +14,7 @@
 
     How the sort works is by looking at the return value for any 2 given items in the array
     If the return value is 0 or negative, we want the item on the left to be further left in the resulting array
-    If the return value is positive, we want the item on the left to be right right in the result array
+    If the return value is positive, we want the item on the left to be further right in the result array
 
     [4, 1, 6, 8, 2];
     After 1 pass
