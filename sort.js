@@ -13,8 +13,8 @@
       Numeric value of any range(negative, positive, 0)
 
     How the sort works is by looking at the return value for any 2 given items in the array
-    If the return value is 0, negative OR falsy, we want the item on the left to be further left in the resulting array
-    If the return value is positive OR truthy, we want the item on the left to be right right in the result array
+    If the return value is 0 or negative, we want the item on the left to be further left in the resulting array
+    If the return value is positive, we want the item on the left to be right right in the result array
 
     [4, 1, 6, 8, 2];
     After 1 pass
@@ -51,22 +51,27 @@ stringAry.sort((a, b) => {
 
 stringAry.sort((a, b) => (a > b ? 1 : -1));
 
-stringAry.sort((a, b) => a > b); // Using a boolean value
-
 // Sort an array of arrays by the length of the arrays within
-let twoDAry = [[1, 4, 21, 6, 643], [1, 5], [5], [3143, 4, 34, 4, 32, 2, 1, 3]];
+let twoDAry = [
+  [1, 4, 21, 6, 643],
+  [1, 5],
+  [5],
+  [3143, 4, 34, 4, 32, 2, 1, 3],
+  [17, 5, 3],
+  [1, 2, 3, 4]
+];
 
 twoDAry.sort((a, b) => {
-  // If the length of the left item is greater than the length of the right item, we want to swap them so return a positive value OR true
+  // If the length of the left item is greater than the length of the right item, we want to swap them so return a positive value
   if (a.length > b.length) {
-    return true;
+    return 1;
   } else {
-    // They're already in the right place, so return a negative value OR false
-    return false;
+    // They're already in the right place, so return a negative value
+    return -1;
   }
 });
 
 twoDAry.sort((a, b) => {
   console.log(a, b);
-  return a.length > b.length;
+  return a.length - b.length;
 });
