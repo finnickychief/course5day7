@@ -78,3 +78,30 @@ currentTime.printLongDate(); // Prints full month
 //this.toString().toLocaleString('en-US', {month: 'long'})
 
 // Write a prototype method to split an array into 2 equally sized arrays, from the middle index
+let aryToSplit = [2, 5, 1, 6, 2, 8, 3];
+//                0  1  2  3  4  5  6
+// 0-3 on the left, 4-6 on the right for this case
+// When odd, favor the left side
+// Otherwise, make them equal
+
+// Slice method that returns a copy with no changes to the original
+Array.prototype.split = function() {
+  // Find the midpoint of an array
+  let midPoint = Math.ceil(this.length / 2);
+  // Get left half
+  let leftHalf = this.slice(0, midPoint);
+  // Get right half
+  let rightHalf = this.slice(midPoint);
+  // How to return to user:
+  // Array of 2 arrays
+  return [leftHalf, rightHalf];
+};
+// Split that modifies the original array
+Array.prototype.split2 = function() {
+  let midPoint = Math.ceil(this.length / 2);
+  let leftHalf = this.slice(0, midPoint);
+  let rightHalf = this.slice(midPoint);
+  this.splice(0); // Clear out all items
+  this[0] = leftHalf;
+  this[1] = rightHalf;
+};
